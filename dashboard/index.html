@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    PolyTrack RL Controller
+</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+</head>
+
+<body>
+
+<header>
+
+    <div>
+
+        <h1>
+            PolyTrack RL
+        </h1>
+
+        <p>
+            Private Server Reinforcement Learning
+        </p>
+
+    </div>
+
+    <div
+        id="connection"
+        class="disconnected"
+    >
+        Disconnected
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- SERVER -->
+
+<section class="panel">
+
+<h2>
+    Private Server
+</h2>
+
+<label>
+
+    Server / Join Code
+
+    <input
+        id="serverCode"
+        type="text"
+        placeholder="Enter private server code"
+    >
+
+</label>
+
+<p class="muted">
+
+    The code is only used to identify your
+    private training session.
+
+</p>
+
+<button id="connect">
+    Connect Local Bridge
+</button>
+
+<button id="train">
+    Start Training
+</button>
+
+<button id="stop">
+    Stop
+</button>
+
+<button id="reset">
+    Reset Episode
+</button>
+
+</section>
+
+
+<!-- REWARDS -->
+
+<section class="panel">
+
+<h2>
+    Reward Settings
+</h2>
+
+
+<div class="grid">
+
+
+<label>
+
+    Forward Progress
+
+    <output id="progressV">
+        3
+    </output>
+
+    <input
+        id="progress"
+        type="range"
+        min="0"
+        max="10"
+        step="0.1"
+        value="3"
+    >
+
+</label>
+
+
+<label>
+
+    Speed
+
+    <output id="speedV">
+        1
+    </output>
+
+    <input
+        id="speed"
+        type="range"
+        min="0"
+        max="10"
+        step="0.1"
+        value="1"
+    >
+
+</label>
+
+
+<label>
+
+    Finish Reward
+
+    <output id="finishV">
+        250
+    </output>
+
+    <input
+        id="finish"
+        type="range"
+        min="0"
+        max="1000"
+        step="10"
+        value="250"
+    >
+
+</label>
+
+
+<label>
+
+    Crash Penalty
+
+    <output id="crashV">
+        25
+    </output>
+
+    <input
+        id="crash"
+        type="range"
+        min="0"
+        max="100"
+        value="25"
+    >
+
+</label>
+
+
+<label>
+
+    Off-Track Penalty
+
+    <output id="offtrackV">
+        10
+    </output>
+
+    <input
+        id="offtrack"
+        type="range"
+        min="0"
+        max="50"
+        value="10"
+    >
+
+</label>
+
+
+<label>
+
+    Centering Reward
+
+    <output id="centerV">
+        1
+    </output>
+
+    <input
+        id="center"
+        type="range"
+        min="0"
+        max="10"
+        step="0.1"
+        value="1"
+    >
+
+</label>
+
+
+</div>
+
+</section>
+
+
+<!-- LEARNING -->
+
+<section class="panel">
+
+<h2>
+    Learning Settings
+</h2>
+
+
+<div class="grid">
+
+
+<label>
+
+    Learning Rate
+
+    <output id="alphaV">
+        0.16
+    </output>
+
+    <input
+        id="alpha"
+        type="range"
+        min="0.01"
+        max="1"
+        step="0.01"
+        value="0.16"
+    >
+
+</label>
+
+
+<label>
+
+    Discount Factor
+
+    <output id="gammaV">
+        0.94
+    </output>
+
+    <input
+        id="gamma"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.94"
+    >
+
+</label>
+
+
+<label>
+
+    Exploration
+
+    <output id="epsilonV">
+        0.18
+    </output>
+
+    <input
+        id="epsilon"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.18"
+    >
+
+</label>
+
+
+</div>
+
+
+<button id="save">
+    Save Model
+</button>
+
+<button id="load">
+    Load Model
+</button>
+
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+
+<div>
+
+    <small>
+        Episode
+    </small>
+
+    <b id="episode">
+        0
+    </b>
+
+</div>
+
+
+<div>
+
+    <small>
+        Best Private Time
+    </small>
+
+    <b id="best">
+        —
+    </b>
+
+</div>
+
+
+<div>
+
+    <small>
+        Reward
+    </small>
+
+    <b id="reward">
+        0
+    </b>
+
+</div>
+
+
+<div>
+
+    <small>
+        Q States
+    </small>
+
+    <b id="states">
+        0
+    </b>
+
+</div>
+
+
+</section>
+
+
+<!-- TELEMETRY -->
+
+<section class="panel">
+
+<h2>
+    Live Agent
+</h2>
+
+<pre id="telemetry">
+Waiting for PolyTrack...
+</pre>
+
+</section>
+
+
+</main>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
