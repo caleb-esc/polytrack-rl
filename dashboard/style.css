@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: #090c0f;
+
+    color: #edf2f5;
+
+    font-family:
+        system-ui,
+        Arial,
+        sans-serif;
+}
+
+
+header {
+
+    padding: 18px 5%;
+
+    background: #11171c;
+
+    border-bottom:
+        1px solid #2b353d;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+h1 {
+
+    margin: 0;
+
+    font-size: 27px;
+
+}
+
+
+header p {
+
+    margin: 4px 0;
+
+    color: #8f9aa2;
+
+}
+
+
+#connection {
+
+    font-weight: bold;
+
+}
+
+
+.connected {
+
+    color: #9cff6b;
+
+}
+
+
+.disconnected {
+
+    color: #ff827d;
+
+}
+
+
+main {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 20px;
+
+}
+
+
+.panel {
+
+    background: #11171c;
+
+    border:
+        1px solid #29343c;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.panel h2 {
+
+    margin-top: 0;
+
+}
+
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+}
+
+
+label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    color: #b9c3ca;
+
+}
+
+
+input[type="text"] {
+
+    background: #090c0f;
+
+    border:
+        1px solid #3a454d;
+
+    border-radius: 7px;
+
+    padding: 11px;
+
+    color: white;
+
+}
+
+
+input[type="range"] {
+
+    accent-color: #9cff6b;
+
+}
+
+
+output {
+
+    color: #9cff6b;
+
+}
+
+
+button {
+
+    border: 0;
+
+    border-radius: 7px;
+
+    padding: 10px 15px;
+
+    margin:
+
+        4px 4px 4px 0;
+
+    background: #9cff6b;
+
+    color: #081006;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+button:hover {
+
+    filter: brightness(1.1);
+
+}
+
+
+.muted {
+
+    color: #8f9aa2;
+
+}
+
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.stats > div {
+
+    background: #11171c;
+
+    border:
+        1px solid #29343c;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+}
+
+
+.stats small {
+
+    display: block;
+
+    color: #89959d;
+
+}
+
+
+.stats b {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 23px;
+
+}
+
+
+pre {
+
+    white-space: pre-wrap;
+
+    color: #bce8a9;
+
+}
+
+
+@media(max-width:700px) {
+
+    .grid,
+    .stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+
+    }
+
+}
